@@ -1,0 +1,29 @@
+Select Title:
+<select name="FAMILYtitle" [(ngModel)]="titleTypes"> 
+<!-- To get select value -->    
+<option [value]="titleTypes" [disabled]="true">Select Option </option>
+<!-- get the list of valid inputs -->       
+<option *ngFor="let TiTles of FAMILYtitle" [ngValue]="TiTles.title">
+    {{TiTles.title}}
+</option>
+</select>
+Name:<input type="text" [(ngModel)] = fname  #txtname1 (keyup)="0">
+Age:<input type="number" [(ngModel)] = fage  #txtname2 (keyup)="0">
+<button type="submit" (click)="addmember(txtname1.value,txtname2.value)">Submit</button>
+<br>
+<br>
+<!-- ng IF to display DIV only if record count is 1 or more -->
+<div *ngIf = "len >= 1">
+    <tr>
+        <th>Si no</th>
+        <th>Tile</th>
+        <th>Name</th>
+        <th>Age</th> 
+    </tr>    
+    <tr *ngFor = 'let ids of FAMILYARRAY, let i = index'>
+        <td>{{i+1}}</td>
+        <td>{{titleTypes}}</td>
+        <td>{{ids.name}}</td>
+        <td>{{ids.age}}</td>
+    </tr>
+</div>
